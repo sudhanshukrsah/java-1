@@ -89,6 +89,86 @@ This folder contains Java programs for revision and practice, covering core conc
    - Approach: Concatenate first string with itself and check if second is substring.
    - Tip: Lengths must be equal for rotation.
 
+## Additional Array & String Utilities
+32. `RemoveDuplicatesArray.java` - Remove duplicate elements while preserving first occurrences.
+   - Approach: Use a HashSet to track seen values; print/add only unseen.
+   - Tip: For in-place without extra space, you'd sort first then compress.
+33. `PrimeNumberSimple.java` - Simpler prime check (duplicate concept reinforcement).
+   - Approach: Trial division up to sqrt(n).
+   - Tip: Reusable logic for other number theory problems.
+34. `ReverseWordsSentence.java` - Reverse word order in a sentence.
+   - Approach: Split on whitespace, iterate backwards.
+   - Tip: Use `trim()` and `split("\\s+")` to normalize spaces.
+35. `FindMissingNumber.java` - Find missing number in 1..n range.
+   - Approach: Sum formula n(n+1)/2 minus sum of provided elements.
+   - Tip: Works only when exactly one number is missing and no duplicates.
+36. `SimpleCalculatorSwitch.java` - Basic arithmetic via switch.
+   - Approach: Switch on operator char, guard division by zero.
+   - Tip: Consider BigDecimal for precision in real apps.
+37. `RotateArrayK.java` - Rotate array right by k.
+   - Approach: Triple reverse method (reverse whole, part1, part2).
+   - Tip: Always reduce k with k % n.
+38. `CharFrequency.java` - Case-sensitive character frequencies.
+   - Approach: HashMap<Character,Integer> counting.
+   - Tip: For ordered output use LinkedHashMap or TreeMap.
+39. `PangramCheck.java` - Determine if sentence uses all letters.
+   - Approach: Boolean array of size 26.
+   - Tip: Ignore non-letter characters.
+40. `MergeSortedArraysNoExtraSpace.java` - Merge two sorted arrays in place.
+   - Approach: Iterate first array; swap with first of second if larger, then insert that element into correct position in second.
+   - Tip: For better efficiency use gap method (Shell-like) for O((n+m) log(n+m)).
+41. `ReverseString.java` (earlier) + `StringRotationCheck.java` synergy.
+   - Tip: Many string problems reduce to indexing & concatenation patterns.
+
+## Data Structures Implementations
+42. `LibraryManagement.java` - Simple library system with add/remove/search.
+   - Approach: `ArrayList<Book>` storing objects; linear search for match.
+   - Tip: Replace with Map / database for scalability.
+43. `CustomLinkedList.java` - Singly linked list with insert, delete, display.
+   - Approach: Maintain head; traverse to tail for append; adjust links to delete.
+   - Tip: Track tail pointer to make inserts O(1).
+44. `QueueUsingTwoStacks.java` - Queue semantics using two stacks.
+   - Approach: Push to s1; on dequeue move to s2 when s2 empty.
+   - Tip: Amortized O(1) per operation.
+
+## Algorithms & Patterns
+45. `SpiralMatrixTraversal.java` - Spiral order traversal of matrix.
+   - Approach: Maintain four boundaries (top, bottom, left, right) and shrink.
+   - Tip: Guard each phase with boundary checks.
+46. `BalancedParentheses.java` - Validate bracket pairing.
+   - Approach: Stack push opens; on close pop and match.
+   - Tip: Early exit on mismatch to save time.
+47. `FirstNonRepeatingChar.java` - First unique character.
+   - Approach: Frequency map then second pass for order.
+   - Tip: LinkedHashMap can combine order + counts in one traversal.
+48. `AllSubsetsArray.java` - Power set of array.
+   - Approach: Bit masking from 0..(2^n - 1).
+   - Tip: For large n, recursion or pruning may be clearer but exponential time inevitable.
+49. `SudokuValidator.java` - Validate Sudoku state (rows, cols, 3x3 blocks).
+   - Approach: For each index track row/col/block seen numbers with boolean arrays.
+   - Tip: Zeros treated as blanks (ignored) here.
+50. `LongestPalindromicSubstring.java` - Expand-around-center approach.
+   - Approach: For each index expand for odd and even centers; track max window.
+   - Tip: O(n^2) time; Manacher's algorithm gives O(n).
+
+## File I/O & Concurrency
+51. `FileHandlingCount.java` - Count lines, words, characters from file.
+   - Approach: BufferedReader line iteration, split words.
+   - Tip: Consider counting bytes separately for encoding concerns.
+52. `MultithreadingEvenOdd.java` - Two threads printing sequences.
+   - Approach: Separate Thread subclasses without synchronization (order not guaranteed).
+   - Tip: Use join()/synchronization if deterministic ordering required.
+
+## Number Theory & Misc Reinforcement
+53. `PrimeNumbersRange.java` (earlier) and `PrimeNumberSimple.java` illustrate range vs single-number validation.
+   - Tip: For many queries, precompute primes via Sieve of Eratosthenes.
+
+## How to Extend Further
+- Add unit tests (e.g., JUnit) for algorithmic classes.
+- Introduce generics for data structures (e.g., LinkedList<T>).
+- Refactor repeated Scanner patterns into utility methods.
+- Implement alternative algorithms (e.g., merge sort, quick sort, sieve, BFS/DFS graphs).
+
 ## How to Run
 
 1. Open a terminal and navigate to this `revision` folder.
